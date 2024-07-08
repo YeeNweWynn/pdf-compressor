@@ -1,5 +1,5 @@
 <template>
-    <div class="Rectangle34 w-[1176px] h-[259px] left-[168px] top-[331px] absolute bg-blue-50 rounded-[7px] border border-blue-500"></div>
+    <div class="CompressForm w-[1176px] h-[298px] left-[168px] top-[331px] absolute bg-blue-50 rounded-[7px] border border-blue-500"></div>
     <div class="Header w-[1512px] h-[156px] left-0 top-0 ">
         <div class="Rectangle33 w-[1512px] h-[58px] left-0 top-[98px] absolute bg-blue-500"></div>
         <div class="Rectangle4 w-[1512px] h-[98px] left-[1512px] top-[98px] absolute origin-top-left -rotate-180 bg-blue-50 shadow"></div>

@@ -53,8 +53,15 @@
       </div>
     </div>
 
-    <div class="left-[1300px] top-[600px] absolute">
-      <img class="w-[30px] h-[30px]" src="./../assets/icon/Check.svg" />
+    <div class="AddMoreBtn left-[1182px] top-[600px] absolute">
+      <img class="w-[16px] h-[16px] left-[17px] top-[15px] absolute" src="./../assets/Icon/icon-plus-square.svg" />
+      <DefaultButton
+        buttonText="Add more"
+        bgColor="bg-blue-50"
+        textColor="text-blue-500"
+        width="w-40"
+        height="h-12"
+        fontFamily="font-['Arial']" />
     </div>
   
     <Recommended />
@@ -73,7 +80,51 @@
   </div>
 
   <!--step 2 end-->
+
+  <!--step 3-->
+  <div v-if="step === 3">
+      <div class="flex justify-center items-center w-full h-full absolute top-[183px]">
+        <img class="w-[28px] h-[35px]" src="./../assets/icon/Download.svg"/>
+      </div>
+      <div class="YourFilesAreReady left-[668px] top-[415px] absolute text-neutral-800 text-xl font-bold font-['Arial']">Your files are ready</div>
+      <div class="NewDocument1Pdf left-[698px] top-[444px] absolute text-center text-neutral-800 text-[12.80px] font-normal font-['Arial'] leading-[18.70px]">New Document1.pdf</div>
+      <div class="NewDocument2Pdf left-[698px] top-[467px] absolute text-center text-neutral-800 text-[12.80px] font-normal font-['Arial'] leading-[18.70px]">New Document2.pdf</div>
+      <div class="IconDownload w-7 h-[35px] left-[742px] top-[372px] absolute"></div>
+
+      <div class="h-8 left-[678px] top-[589px] absolute">
+      <div class="ButtonsPlain w-[79px] h-8 px-4 py-2 left-0 top-0 absolute rounded-[5px] justify-center items-center inline-flex">
+        <img src="./../assets/icon/Trash.svg" alt="Delete Icon" />
+        <div class="DeleteBtn text-center text-red-400 text-base font-normal font-['Arial']">Delete</div>
+      </div>
+      <div class="ButtonsPlain w-[84px] h-8 px-4 py-2 left-[95px] top-0 absolute rounded-[5px] justify-center items-center inline-flex">
+        <img src="./../assets/icon/Restart.svg" alt="Restart Icon" class="pr-[3px]"/>
+        <div class="RestartBtn text-center text-neutral-800 text-base font-normal font-['Arial']">Restart</div>
+      </div>
+    </div>
+    <div class="w-[266px] h-[0px] left-[623px] top-[582px] absolute border border-stone-300"></div>
+    <div class="IconTrash w-[30px] h-[30px] px-2 pt-2 pb-[7px] left-[664px] top-[598px] absolute justify-center items-center inline-flex">
+      <div class="Frame w-3.5 h-[15px] relative flex-col justify-start items-start flex"></div>
+    </div>
+    <div class="IconRestart w-[14.08px] h-3.5 left-[768px] top-[607px] absolute justify-center items-center inline-flex">
+      <div class="Group w-[14.08px] h-3.5 relative">
+      </div>
+    </div>
+    <div class="Group73 w-[496px] h-12 left-[508px] top-[510px] absolute">
+      <div class="ButtonsOption w-40 h-12 px-4 py-2 left-[168px] top-0 absolute rounded-[5px] border border-orange-400 justify-center items-center inline-flex">
+        <div class="AllPdfTools text-center text-orange-400 text-base font-normal font-['Arial']">Preview</div>
+      </div>
+      <div class="ButtonsDefault w-40 h-12 px-4 py-2 left-0 top-0 absolute bg-orange-300 rounded-[5px] justify-center items-center inline-flex">
+        <div class="AllPdfTools text-center text-neutral-800 text-base font-normal font-['Arial']">Download</div>
+      </div>
+      <div class="ButtonsDefault w-40 h-12 px-4 py-2 left-[336px] top-0 absolute bg-orange-300 rounded-[5px] justify-center items-center inline-flex">
+        <div class="AllPdfTools text-center text-neutral-800 text-base font-normal font-['Arial']">Continue in <br/>another tool</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!--step 3 ended-->
    
+    <PdfActions :step="step" v-if="step === 3"/>
     <Advertisement :step="step"/>
     <Information :step="step"/>
 
@@ -126,7 +177,7 @@ export default {
     },
     data() {
         return {
-            step: 1,
+          step: 1,
           loading: false,
           compressing: false,
           compressionJobId: null,

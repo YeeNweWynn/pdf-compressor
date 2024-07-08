@@ -1,8 +1,7 @@
 <template>
     <div class="absolute left-[177px] top-[702px] w-[1159px] h-[144px] bg-blue-500"></div>
-    <div class="w-[1159px] h-20 left-[177px] top-[702px] mt-[10px] absolute flex">
+    <div class="w-[1159px] h-20 left-[177px] top-[702px] mt-[10px] pl-[10px] pr-[10px] absolute flex">
       <div class="w-[219px] h-20 rounded border border-blue-400 flex items-center justify-center relative">
-
 
         <div class="ml-[40px] text-white text-[12.80px] font-normal font-['Arial'] leading-[18.70px]">Merge PDF</div>
         <div class="absolute top-1 right-1 w-[23px] h-[23px]"></div>

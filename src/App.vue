@@ -1,6 +1,6 @@
 
 <template>
-  <div class="CompressPdfUploadPdf w-[1512px] h-[2408px]">
+  <div class="CompressPdf w-[1512px] h-[2408px]">
     <Header/>
     <router-view/>
     <!-- <router-view :step="step"/>
