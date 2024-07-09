@@ -22,9 +22,10 @@
     props: {
       buttonText: {
         type: String,
-        required: true
-      }
+        default: ''
+      },
     },
+    emits: ['file-selected'],
     data() {
       return {
         uploadedFiles: []

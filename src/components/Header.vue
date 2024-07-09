@@ -1,5 +1,4 @@
 <template>
-    <div class="CompressForm w-[1176px] h-[298px] left-[168px] top-[331px] absolute bg-blue-50 rounded-[7px] border border-blue-500"></div>
     <div class="Header w-[1512px] h-[156px] left-0 top-0 ">
         <div class="Rectangle33 w-[1512px] h-[58px] left-0 top-[98px] absolute bg-blue-500"></div>
         <div class="Rectangle4 w-[1512px] h-[98px] left-[1512px] top-[98px] absolute origin-top-left -rotate-180 bg-blue-50 shadow"></div>
@@ -31,15 +30,21 @@
         <div class="Group51 w-[238px] h-[25px] left-[1108px] top-[115px] absolute">
         <div class="Group48 w-[54px] h-[25px] left-0 top-0 absolute">
             <div class="Free w-[27px] h-[25px] left-[27px] top-0 absolute text-white text-[12.80px] font-normal font-['Arial'] leading-[18.70px]">Free</div>
-            <div class="IconCheck w-[17px] h-[17px] left-0 top-[4px] absolute flex-col justify-start items-start inline-flex"></div>
+            <div class="IconCheck w-[17px] h-[17px] left-0 top-[1px] absolute flex-col justify-start items-start inline-flex">
+                <img src="./../assets/icon/Check.svg" alt="Check Icon">
+            </div>
         </div>
         <div class="Group49 w-[65px] h-[25px] left-[73px] top-0 absolute">
             <div class="Online w-[38px] h-[25px] left-[27px] top-0 absolute text-white text-[12.80px] font-normal font-['Arial'] leading-[18.70px]">Online</div>
-            <div class="IconCheck w-[17px] h-[17px] left-0 top-[4px] absolute flex-col justify-start items-start inline-flex"></div>
+            <div class="IconCheck w-[17px] h-[17px] left-0 top-[1px] absolute flex-col justify-start items-start inline-flex">
+                <img src="./../assets/icon/Check.svg" alt="Check Icon">
+            </div>
         </div>
         <div class="Group50 w-[81px] h-[25px] left-[157px] top-0 absolute">
             <div class="NoLimits w-[54px] h-[25px] left-[27px] top-0 absolute text-white text-[12.80px] font-normal font-['Arial'] leading-[18.70px]">No Limits</div>
-            <div class="IconCheck w-[17px] h-[17px] left-0 top-[4px] absolute flex-col justify-start items-start inline-flex"></div>
+            <div class="IconCheck w-[17px] h-[17px] left-0 top-[1px] absolute flex-col justify-start items-start inline-flex">
+                <img src="./../assets/icon/Check.svg" alt="Check Icon">
+            </div>
         </div>
         </div>
     </div>

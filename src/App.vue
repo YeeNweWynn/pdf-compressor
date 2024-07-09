@@ -3,8 +3,6 @@
   <div class="CompressPdf w-[1512px] h-[2408px]">
     <Header/>
     <router-view/>
-    <!-- <router-view :step="step"/>
-    <Footer :step="step"/> -->
   </div>
 </template>
 
