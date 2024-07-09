@@ -258,8 +258,8 @@ export default {
                 ctime: file.ctime,
                 host: file.host,
               })),
-              dpi: 144,
-              imageQuality: 75,
+              dpi: this.dpi,
+              imageQuality: this.imageQuality,
               mode: 'normal',
               colorModel: '',
             };
