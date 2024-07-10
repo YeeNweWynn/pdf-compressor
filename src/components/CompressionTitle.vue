@@ -13,7 +13,7 @@
     </div>
     <div class="StepButton flex flex-col items-center justify-center space-y-4 md:flex-row md:justify-between md:space-y-0 mt-10">
       <div :class="['flex items-center justify-center border rounded-full px-4 py-2 w-full max-w-xs', step === 1 ? 'bg-blue-50 border-blue-500' : 'border-stone-300']">
-        <div :class="step === 1 ? 'text-blue-500' : 'text-stone-300' " class="text-sm font-bold font-arial">1. Upload your PDFs {{ step }}</div>
+        <div :class="step === 1 ? 'text-blue-500' : 'text-stone-300' " class="text-sm font-bold font-arial">1. Upload your PDFs </div>
       </div>
       <div class="border-t border-stone-300 w-full md:flex-grow md:mx-4"></div>
       <div :class="['flex items-center justify-center border rounded-full px-4 py-2 w-full max-w-xs', step === 2 ? 'bg-blue-50 border-blue-500' : 'border-stone-300']">

@@ -61,6 +61,9 @@
     methods: {
         removeFile(index) {
             this.uploadedFiles.splice(index, 1);
+            if (this.uploadedFiles.length === 0) {
+              window.location.reload();
+            }
         },
         triggerFileInput() {
           triggerFileInput(this.$refs.uploadButton);

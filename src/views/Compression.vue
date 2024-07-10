@@ -8,7 +8,6 @@
              @option-selected="handleOptionSelected"
              @compress-files="compressFiles"
       />
-
       <StepThree v-if="step === 3" 
              :uploadedFiles="uploadedFiles"
              @restart="restart"
@@ -32,7 +31,6 @@ import Recommended from '../components/Recommended.vue';
 import DefaultButton from '../components/DefaultButton.vue';
 import DropZone from '../components/DropZone.vue';
 import LoadingIndicator from '../components/LoadingIndicator.vue';
-
 import { triggerFileInput, formatBytes, getLeftClass, truncateFilename } from '../utils/utils.js';
 
 export default {
@@ -53,7 +51,6 @@ export default {
         Advertisement,
         Recommended,
         LoadingIndicator,
-        
     },
     data() {
         return {
@@ -98,16 +95,10 @@ export default {
           return Array.isArray(data) ? data : [data];
         });
       },
-      removeFile(index) {
-        this.uploadedFiles.splice(index, 1);
-      },
       handleOptionSelected({ option, dpi, imageQuality }) {
           this.selectedOption = option;
           this.dpi = dpi;
           this.imageQuality = imageQuality;
-          console.log('Selected option:', option);
-          console.log('dpi:', dpi);
-          console.log('imgqty:', imageQuality);
       },
       async compressFiles() {
         console.log('Compressing files... ');

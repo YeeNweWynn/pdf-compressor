@@ -6,12 +6,7 @@
             <img src="./../assets/icon/Arrow_right_blue.svg" alt="Dropdown Arrow"
                 class="h-6 w-6 ml-auto transform transition-transform duration-200" :class="{ 'rotate-90': dropdownOpen }">
         </div>
-
-        <!-- Dropdown content -->
         <div v-if="dropdownOpen" class="bg-white border border-gray-200 shadow-lg rounded-md mt-2">
-            <!-- FAQ answers -->
-             
-            <!-- Answer 1 -->
             <div class="p-4 border-t border-gray-200">
                 <div class="cursor-pointer flex items-center" @click="toggleAnswer1">
                     <p><strong class="text-lg">How to compress a PDF to reduce its size?</strong></p>
@@ -27,8 +22,6 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Answer 2 -->
             <div class="p-4 border-t border-gray-200">
                 <div class="cursor-pointer flex items-center" @click="toggleAnswer2">
                     <p><strong class="text-lg">What does compressing a PDF do?</strong></p>
