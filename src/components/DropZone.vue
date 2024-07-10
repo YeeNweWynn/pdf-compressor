@@ -7,10 +7,12 @@
       @drop.prevent="handleDrop"  
       :class="{ 'active-dropzone': active }"
       v-bind="getRootProps()"
-      class="w-[1176px] h-[298px] left-[168px] top-[331px] absolute bg-blue-50 rounded-[7px] border border-blue-500"
+      class="DropZone flex flex-col items-center justify-center mt-40 md:mt-40 mb-10 md:mb-10"
     >
-      <label for="dropzoneFile"></label>
-      <input v-bind="getInputProps()" />
+    
+    <label for="dropzoneFile"></label>
+    <input v-bind="getInputProps()" />
+
     </div>
  
 </template>

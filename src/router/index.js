@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Compress from "../views/Compress.vue";
+import CompressionPanel from "../views/CompressionPanel.vue";
 
 const routes = [
     {
         path: "/",
-        name: "Compress",
-        component: Compress       
+        name: "CompressionPanel",
+        component: CompressionPanel       
     },
 
 ];
