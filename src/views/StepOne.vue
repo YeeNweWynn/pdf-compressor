@@ -1,7 +1,6 @@
 <template>
   <DropZone @file-dropped="handleFileSelected" />
 </template>
-
 <script>
 import DropZone from '../components/DropZone.vue';
 

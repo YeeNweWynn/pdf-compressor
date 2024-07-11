@@ -63,7 +63,6 @@ export default {
     const uploadedFiles = ref([]);
 
     const handleFileSelected = (file) => {
-      console.log('File selected:', file);
       step.value = 2;
       loading.value = true;
       uploadFile(file)
@@ -99,7 +98,6 @@ export default {
     };
 
     const compressFiles = async () => {
-      console.log('Compressing files... ');
       try {
         isCompressing.value = loading.value = true;
         const apiUrl =
@@ -123,7 +121,6 @@ export default {
           },
           withCredentials: true,
         });
-        console.log('Compression JobID:', response.data.jobId);
         compressionJobId.value = response.data.jobId;
         await pollJobStatus();
       } catch (error) {
@@ -135,7 +132,6 @@ export default {
 
     const pollJobStatus = async () => {
       try {
-        console.log('Polling job status...');
         if (!compressionJobId.value) return;
         let status = '';
         while (status !== 'done') {
@@ -146,12 +142,9 @@ export default {
             },
             withCredentials: true,
           });
-          console.log('pollJobStatus:', response.data.status);
           status = response.data.status;
-          console.log('Current Status:', status);
           await new Promise((resolve) => setTimeout(resolve, 5000));
         }
-        console.log('Compression complete!');
         step.value = 3;
       } catch (error) {
         console.error('Error checking job status:', error);
@@ -160,7 +153,6 @@ export default {
 
     const downloadCompressedFile = async () => {
       try {
-        console.log('Downloading compressed file...', compressionJobId.value);
         if (!compressionJobId.value) return;
         const downloadUrl = `https://filetools13.pdf24.org/client.php?mode=download&action=downloadJobResult&jobId=${compressionJobId.value}`;
         const link = document.createElement('a');
@@ -170,7 +162,6 @@ export default {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        console.log('Download initiated!');
       } catch (error) {
         console.error('Error downloading file:', error);
       }

@@ -68,7 +68,6 @@
     />
   </div>
 </template>
-
 <script>
 import { formatBytes, truncateFilename } from '../utils/utils.js';
 import Recommended from '../components/Recommended.vue';
