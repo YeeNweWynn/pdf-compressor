@@ -59,7 +59,7 @@
       <div
         class="absolute top-0 right-0 w-4 h-4 rounded-full flex items-center justify-center"
       >
-        <img class="w-4 h-4" ;src="StarLogo" alt="Star Icon" />
+        <img class="w-4 h-4" :src="StarLogo" alt="Star Icon" />
       </div>
     </div>
     <div
