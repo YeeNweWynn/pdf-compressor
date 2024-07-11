@@ -13,7 +13,7 @@
         FAQ
       </div>
       <img
-        src="./../assets/icon/Arrow_right_blue.svg"
+        :src="ArrowRightBlue"
         alt="Dropdown Arrow"
         class="h-6 w-6 ml-auto transform transition-transform duration-200"
         :class="{ 'rotate-90': dropdownOpen }"
@@ -31,7 +31,7 @@
             >
           </p>
           <img
-            src="./../assets/icon/Arrow_right_black.svg"
+            :src="ArrowBlack"
             alt="Answer Arrow"
             class="h-4 w-4 ml-auto transform transition-transform duration-200"
             :class="{ 'rotate-90': showAnswer1 }"
@@ -55,7 +55,7 @@
             <strong class="text-lg">What does compressing a PDF do?</strong>
           </p>
           <img
-            src="./../assets/icon/Arrow_right_black.svg"
+            :src="ArrowBlack"
             alt="Answer Arrow"
             class="h-4 w-4 ml-auto transform transition-transform duration-200"
             :class="{ 'rotate-90': showAnswer2 }"
@@ -76,7 +76,7 @@
             <strong class="text-lg">Is it secure to use PDF24 Tools?</strong>
           </p>
           <img
-            src="./../assets/icon/Arrow_right_black.svg"
+            :src="ArrowBlack"
             alt="Answer Arrow"
             class="h-4 w-4 ml-auto transform transition-transform duration-200"
             :class="{ 'rotate-90': showAnswer3 }"
@@ -102,7 +102,8 @@
 
 <script>
 import { ref } from 'vue'
-
+import ArrowRightBlue from '@/assets/Icon/Arrow_right_blue.svg'
+import ArrowBlack from '@/assets/Icon/Arrow_right_black.svg'
 export default {
   name: 'FAQ',
   setup() {
@@ -128,6 +129,8 @@ export default {
     }
 
     return {
+      ArrowRightBlue,
+      ArrowBlack,
       dropdownOpen,
       showAnswer1,
       showAnswer2,

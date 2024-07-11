@@ -12,7 +12,7 @@
     <input v-bind="getInputProps()" />
     <div class="relative inline-flex flex-col items-center justify-center mb-4">
       <div class="IconArrowDown transform mb-2">
-        <img src="../assets/Icon/Page.svg" alt="Arrow Down" />
+        <img :src="PageIcon" alt="File" />
       </div>
 
       <label for="fileInput" class="flex items-center">
@@ -26,11 +26,7 @@
               Select files
             </div>
             <div class="h-6 w-px bg-neutral-800 ml-4 md:ml-20"></div>
-            <img
-              src="./../assets/icon/Arrow_down.svg"
-              class="h-4 w-4"
-              alt="Dropdown Arrow"
-            />
+            <img :src="ArrowDown" class="h-4 w-4" alt="Dropdown Arrow" />
           </div>
         </div>
       </label>
@@ -43,14 +39,10 @@
       <div class="flex items-center mb-4">
         <img
           class="GoogleDrive w-16 h-4 mr-2"
-          src="./../assets/icon/Google_drive_logo.png"
+          :src="GdriveLogo"
           alt="Google Drive Logo"
         />
-        <img
-          class="DropBox w-13 h-3"
-          src="./../assets/icon/Dropbox_logo.png"
-          alt="Dropbox Logo"
-        />
+        <img class="DropBox w-13 h-3" :src="DropBoxLogo" alt="Dropbox Logo" />
       </div>
     </div>
   </div>
@@ -59,6 +51,10 @@
 <script>
 import { useDropzone } from 'vue3-dropzone'
 import { ref } from 'vue'
+import PageIcon from '@/assets/Icon/Page.svg'
+import ArrowDown from '@/assets/Icon/Arrow_down.svg'
+import GdriveLogo from '@/assets/Icon/Google_drive_logo.png'
+import DropBoxLogo from '@/assets/Icon/Dropbox_logo.png'
 
 export default {
   name: 'DropZone',
@@ -74,6 +70,10 @@ export default {
     }
     const { getRootProps, getInputProps, ...rest } = useDropzone({ onDrop })
     return {
+      PageIcon,
+      ArrowDown,
+      GdriveLogo,
+      DropBoxLogo,
       active,
       getRootProps,
       getInputProps,

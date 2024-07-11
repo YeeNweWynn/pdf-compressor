@@ -4,13 +4,19 @@
   >
     <img
       class="w-full h-auto"
-      src="./../assets/Advertisement.png"
+      :src="AdvertisementImg"
       alt="Placeholder Image"
     />
   </div>
 </template>
 <script>
+import AdvertisementImg from '@/assets/Advertisement.png'
 export default {
   name: 'Advertisement',
+  data() {
+    return {
+      AdvertisementImg,
+    }
+  },
 }
 </script>

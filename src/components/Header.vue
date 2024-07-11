@@ -22,7 +22,7 @@
           >Desktop Version</span
         >
         <div class="MoonIcon mt-[8px]">
-          <img src="./../assets/icon/Moon.svg" alt="Moon Icon" />
+          <img :src="MoonIcon" alt="Moon Icon" />
         </div>
         <div
           class="ButtonDefault w-auto h-8 bg-blue-500 rounded justify-center items-center inline-flex"
@@ -40,7 +40,7 @@
   <div class="bg-blue-500 text-white p-4 flex justify-between items-center">
     <div class="flex items-center ml-40">
       <div class="IconStars">
-        <img src="./../assets/icon/Stars.svg" alt="Star Icon" />
+        <img :src="StarsIcon" alt="Star Icon" />
       </div>
       <div class="text-white text-base font-normal font-arial">
         <span>4.9</span>
@@ -51,19 +51,19 @@
     <div class="flex space-x-4 mr-40">
       <div class="HeaderIcon flex items-center space-x-2">
         <div class="IconCheck">
-          <img src="./../assets/icon/Check.svg" alt="Check Icon" />
+          <img :src="CheckIcon" alt="Check Icon" />
         </div>
         <div class="text-white">Free</div>
       </div>
       <div class="HeaderIcon flex items-center space-x-2">
         <div class="IconCheck">
-          <img src="./../assets/icon/Check.svg" alt="Check Icon" />
+          <img :src="CheckIcon" alt="Check Icon" />
         </div>
         <div class="text-white">Online</div>
       </div>
       <div class="HeaderIcon flex items-center space-x-2">
         <div class="IconCheck">
-          <img src="./../assets/icon/Check.svg" alt="Check Icon" />
+          <img :src="CheckIcon" alt="Check Icon" />
         </div>
         <div class="text-white">No Limits</div>
       </div>
@@ -71,7 +71,18 @@
   </div>
 </template>
 <script>
+import MoonIcon from '@/assets/Icon/Moon.svg'
+import StarsIcon from '@/assets/Icon/Stars.svg'
+import CheckIcon from '@/assets/Icon/Check.svg'
+
 export default {
   name: 'Header',
+  data() {
+    return {
+      MoonIcon,
+      StarsIcon,
+      CheckIcon,
+    }
+  },
 }
 </script>

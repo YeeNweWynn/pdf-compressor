@@ -12,13 +12,13 @@
       >
         <div class="ActionBution flex justify-between w-full">
           <button class="IconZoom flex justify-center items-center">
-            <img class="w-4" src="./../assets/Icon/Zoom.svg" />
+            <img class="w-4" :src="ZoomIcon" />
           </button>
           <button
             class="IconDelete flex justify-center items-center"
             @click="removeFile(index)"
           >
-            <img class="w-4" src="./../assets/Icon/Delete.svg" />
+            <img class="w-4" :src="DeleteIcon" />
           </button>
         </div>
         <div
@@ -27,7 +27,7 @@
           <div class="PreviewOverlay inset-0 bg-blue-50"></div>
           <img
             class="w-32 h-40 shadow border border-stone-300"
-            src="./../assets/icon/sample_pdf.png"
+            :src="PdfImg"
             alt="Uploaded PDF"
           />
           <div
@@ -44,7 +44,7 @@
       class="flex justify-end"
       @click="addMoreFiles"
     >
-      <img class="h-8" src="./../assets/Icon/icon-plus-square.svg" />
+      <img class="h-8" :src="PlusIcon" />
       <input
         id="fileInput"
         type="file"
@@ -69,9 +69,13 @@
   </div>
 </template>
 <script>
-import { formatBytes, truncateFilename } from '../utils/utils.js'
-import Recommended from '../components/Recommended.vue'
-import DefaultButton from '../components/DefaultButton.vue'
+import ZoomIcon from '@/assets/Icon/Zoom.svg'
+import DeleteIcon from '@/assets/Icon/Delete.svg'
+import PdfImg from '@/assets/Icon/sample_pdf.png'
+import PlusIcon from '@/assets/Icon/icon-plus-square.svg'
+import { formatBytes, truncateFilename } from '@/utils/utils.js'
+import Recommended from '@/components/Recommended.vue'
+import DefaultButton from '@/components/DefaultButton.vue'
 
 export default {
   name: 'StepTwo',
@@ -79,6 +83,14 @@ export default {
     loading: Boolean,
     isCompressing: Boolean,
     uploadedFiles: Array,
+  },
+  data() {
+    return {
+      ZoomIcon,
+      DeleteIcon,
+      PdfImg,
+      PlusIcon,
+    }
   },
   components: {
     Recommended,

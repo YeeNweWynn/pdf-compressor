@@ -9,11 +9,7 @@
           PDF compressor to reduce the size of PDF files quickly and easily
         </div>
       </div>
-      <img
-        src="./../assets/logo.png"
-        alt="Logo"
-        class="mt-4 md:mt-0 md:mr-auto"
-      />
+      <img :src="Logo" alt="Logo" class="mt-4 md:mt-0 md:mr-auto" />
     </div>
     <div
       class="StepBtn flex flex-col items-center justify-center space-y-4 md:flex-row md:justify-between md:space-y-0 mt-10"
@@ -63,10 +59,16 @@
   </div>
 </template>
 <script>
+import Logo from '@/assets/logo.png'
 export default {
   name: 'CompressionTitle',
   props: {
     step: Number,
+  },
+  data() {
+    return {
+      Logo,
+    }
   },
 }
 </script>
