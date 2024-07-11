@@ -1,10 +1,12 @@
+# Demo
 
+Hosted on https://pdfminify.netlify.app
 
 # PdfCompressor
 
 This project was generated with Vue cli [ https://cli.vuejs.org/ ] verson 5.0.8 
 
-## Manual Installation
+## Development environment setup by manually
 
 * git  clone [ https://github.com/YeeNweWynn/pdf-compressor.git ]
 
@@ -14,7 +16,7 @@ This project was generated with Vue cli [ https://cli.vuejs.org/ ] verson 5.0.8
 
 * Run `npm run dev` for a dev server. Navigate to `http://localhost:3000/`. The application will automatically reload if you change any of the source files.
 
-### Docker Installation
+### Development environment setup with docker
 
 * docker-compose up -d
   
