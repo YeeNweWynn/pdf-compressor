@@ -1,6 +1,6 @@
 import CompressIcon from '@/assets/Icon/Compress_Tool.svg'
 import AdjustIcon from '@/assets/Icon/Adjust.svg'
-import StarIcon from '@/assets/Icon/Star.svg'
+import StarIcon from '@/assets/Icon/StarI.svg'
 import ComputerIcon from '@/assets/Icon/Computer.svg'
 import CloudIcon from '@/assets/Icon/Cloud.svg'
 import LockIcon from '@/assets/Icon/Lock.svg'
