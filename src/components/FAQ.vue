@@ -38,7 +38,7 @@
           />
         </div>
         <div v-if="showAnswer1" class="ml-6 mt-2">
-          <ul class="list-disc">
+          <ul class="list-disc text-zinc-600 text-base font-normal font-arial">
             <li>
               Click the file selection box at the top of the page and select the
               files to compress.
@@ -62,11 +62,37 @@
           />
         </div>
         <div v-if="showAnswer2" class="ml-6 mt-2">
-          <ul class="list-disc">
+          <ul class="list-disc text-zinc-600 text-base font-normal font-arial">
             <li>Removal of unnecessary font information.</li>
             <li>Reduction of image size based on DPI settings.</li>
             <li>Adjustment of image quality.</li>
             <li>Structural compression of PDF data.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-4 border-t border-gray-200">
+        <div class="cursor-pointer flex items-center" @click="toggleAnswer3">
+          <p>
+            <strong class="text-lg">Is it secure to use PDF24 Tools?</strong>
+          </p>
+          <img
+            src="./../assets/icon/Arrow_right_black.svg"
+            alt="Answer Arrow"
+            class="h-4 w-4 ml-auto transform transition-transform duration-200"
+            :class="{ 'rotate-90': showAnswer3 }"
+          />
+        </div>
+        <div v-if="showAnswer2" class="ml-6 mt-2">
+          <ul class="list-disc text-zinc-600 text-base font-normal font-arial">
+            <li>All file transfers are encrypted.</li>
+            <li>
+              All files are automatically deleted from the processing server
+              within one hour after processing. .
+            </li>
+            <li>
+              We do not store files and do not evaluate them. Files will only be
+              used for the intended purpose. .
+            </li>
           </ul>
         </div>
       </div>
@@ -75,25 +101,42 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
   name: 'FAQ',
-  data() {
-    return {
-      dropdownOpen: false,
-      showAnswer1: false,
-      showAnswer2: false,
+  setup() {
+    const dropdownOpen = ref(false);
+    const showAnswer1 = ref(false);
+    const showAnswer2 = ref(false);
+    const showAnswer3 = ref(false);
+
+    const toggleDropdown = () => {
+      dropdownOpen.value = !dropdownOpen.value;
     };
-  },
-  methods: {
-    toggleDropdown() {
-      this.dropdownOpen = !this.dropdownOpen;
-    },
-    toggleAnswer1() {
-      this.showAnswer1 = !this.showAnswer1;
-    },
-    toggleAnswer2() {
-      this.showAnswer2 = !this.showAnswer2;
-    },
+
+    const toggleAnswer1 = () => {
+      showAnswer1.value = !showAnswer1.value;
+    };
+
+    const toggleAnswer2 = () => {
+      showAnswer2.value = !showAnswer2.value;
+    };
+
+    const toggleAnswer3 = () => {
+      showAnswer3.value = !showAnswer3.value;
+    };
+
+    return {
+      dropdownOpen,
+      showAnswer1,
+      showAnswer2,
+      showAnswer3,
+      toggleDropdown,
+      toggleAnswer1,
+      toggleAnswer2,
+      toggleAnswer3,
+    };
   },
 };
 </script>

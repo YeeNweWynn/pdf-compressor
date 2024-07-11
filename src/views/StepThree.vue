@@ -41,7 +41,6 @@
           width="w-40"
           height="h-12"
           fontFamily="font-sans"
-          @click="$emit('preview-file')"
         />
         <DefaultButton
           buttonText="Continue in another tool"
@@ -51,7 +50,7 @@
           width="w-40"
           height="h-12"
           fontFamily="font-sans"
-          @click="$emit('continue-tool')"
+          @click="$emit('restart')"
         />
       </div>
 
@@ -65,7 +64,7 @@
           />
           <div
             class="text-red-400 text-base font-normal font-sans cursor-pointer text-red-400"
-            @click="$emit('delete-files')"
+            @click="$emit('restart')"
           >
             Delete
           </div>

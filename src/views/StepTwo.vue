@@ -39,19 +39,26 @@
         </div>
       </div>
     </div>
-    <div v-if="uploadedFiles.length > 0" class="flex justify-end">
-      <img
-        class="h-8"
-        src="./../assets/Icon/icon-plus-square.svg"
-        @click="triggerFileInput"
+    <div
+      v-if="uploadedFiles.length > 0"
+      class="flex justify-end"
+      @click="addMoreFiles"
+    >
+      <img class="h-8" src="./../assets/Icon/icon-plus-square.svg" />
+      <input
+        id="fileInput"
+        type="file"
+        ref="fileInput"
+        class="hidden"
+        multiple
+        @change="handleFileChange"
       />
-      <UploadButton ref="uploadButton" @file-selected="handleFileSelected" />
     </div>
   </div>
   <Recommended @option-selected="$emit('option-selected', $event)" />
   <div class="flex justify-center mt-[30px]">
     <DefaultButton
-      :buttonText="loading ? 'Compressing...' : 'Compress'"
+      :buttonText="isCompressing ? 'Compressing...' : 'Compress'"
       bgColor="bg-orange-300"
       textColor="text-neutral-800"
       width="w-40"
@@ -66,19 +73,19 @@
 import { formatBytes, truncateFilename } from '../utils/utils.js';
 import Recommended from '../components/Recommended.vue';
 import DefaultButton from '../components/DefaultButton.vue';
-import UploadButton from '../components/UploadButton.vue';
-import { triggerFileInput } from '../utils/utils.js';
 
 export default {
   name: 'StepTwo',
   props: {
     loading: Boolean,
+    isCompressing: Boolean,
     uploadedFiles: Array,
   },
   components: {
     Recommended,
     DefaultButton,
   },
+  emits: ['option-selected', 'compress-files', 'file-selected'],
   methods: {
     removeFile(index) {
       this.uploadedFiles.splice(index, 1);
@@ -86,8 +93,16 @@ export default {
         window.location.reload();
       }
     },
-    triggerFileInput() {
-      triggerFileInput(this.$refs.uploadButton);
+    handleFileChange(event) {
+      const files = event.target.files;
+      if (files.length > 0) {
+        for (let i = 0; i < files.length; i++) {
+          this.$emit('file-selected', files[i]);
+        }
+      }
+    },
+    addMoreFiles() {
+      this.$refs.fileInput.click();
     },
     formatBytes(bytes) {
       return formatBytes(bytes);

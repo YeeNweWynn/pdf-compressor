@@ -10,48 +10,52 @@ export default {
   props: {
     buttonText: {
       type: String,
-      required: true
+      required: true,
     },
     bgColor: {
       type: String,
-      default: 'bg-blue-500'
+      default: 'bg-blue-500',
     },
     textColor: {
       type: String,
-      default: 'text-white'
+      default: 'text-white',
     },
     width: {
       type: String,
-      default: 'w-32'
+      default: 'w-32',
     },
     height: {
       type: String,
-      default: 'h-8'
+      default: 'h-8',
     },
     paddingX: {
       type: String,
-      default: 'px-4'
+      default: 'px-4',
     },
     paddingY: {
       type: String,
-      default: 'py-2'
+      default: 'py-2',
     },
     borderRadius: {
       type: String,
-      default: 'rounded-[5px]'
+      default: 'rounded-[5px]',
     },
     fontFamily: {
       type: String,
-      default: 'font-sans'
+      default: 'font-sans',
     },
     fontSize: {
       type: String,
-      default: 'text-base'
+      default: 'text-base',
     },
     fontWeight: {
       type: String,
-      default: 'font-normal'
-    }
+      default: 'font-normal',
+    },
+    isCompressing: {
+      type: Boolean,
+      required: false,
+    },
   },
   computed: {
     buttonClasses() {
@@ -59,7 +63,7 @@ export default {
     },
     textClasses() {
       return `${this.textColor} ${this.fontSize} ${this.fontWeight} ${this.fontFamily}`;
-    }
-  }
+    },
+  },
 };
 </script>
