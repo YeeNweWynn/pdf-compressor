@@ -1,10 +1,8 @@
 <template>
   <div class="bg-blue-50">
-    <!-- First Section -->
     <div
       class="text-white p-4 flex flex-col md:flex-row justify-between items-center"
     >
-      <!-- Logo and Title -->
       <div class="flex items-center ml-4 md:ml-40 mb-4 md:mb-0">
         <span
           class="text-black text-2xl md:text-[35px] font-bold font-['Istok Web'] leading-tight"
@@ -15,7 +13,6 @@
           >Tools</span
         >
       </div>
-      <!-- Menu -->
       <div
         class="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-4 mr-4 md:mr-40"
       >
@@ -41,12 +38,9 @@
         </div>
       </div>
     </div>
-
-    <!-- Second Section -->
     <div
       class="bg-blue-500 text-white p-4 flex flex-col md:flex-row justify-between items-center"
     >
-      <!-- Rating -->
       <div class="flex items-center ml-4 md:ml-40 mb-4 md:mb-0">
         <img :src="StarsIcon" alt="Star Icon" />
         <div class="text-white text-base font-normal font-['Arial'] ml-2">
@@ -56,7 +50,6 @@
           <span>(8,381 votes)</span>
         </div>
       </div>
-      <!-- Features -->
       <div
         class="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-4 mr-4 md:mr-40"
       >
