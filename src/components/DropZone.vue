@@ -3,93 +3,91 @@
     @dragenter.prevent="toggleActive"
     @dragleave.prevent="toggleActive"
     @dragover.prevent
-    @drop.prevent="handleDrop"  
+    @drop.prevent="handleDrop"
     :class="{ 'active-dropzone': active }"
     v-bind="getRootProps()"
     class="CompressionForm bg-blue-50 rounded-lg border border-blue-500 p-4 mt-6 min-h-[259px] flex flex-col justify-center items-center"
   >
     <label for="dropzoneFile"></label>
     <input v-bind="getInputProps()" />
+    <div
+      class="Upload relative inline-flex flex-col items-center justify-center mb-4"
+    >
+      <div class="IconArrowDown transform mb-2">
+        <img src="../assets/Icon/Page.svg" alt="Arrow Down" />
+      </div>
 
-    <div class="Upload relative inline-flex flex-col items-center justify-center mb-4">
-        <div class="IconArrowDown transform mb-2">
-            <img src="../assets/Icon/Page.svg" alt="Arrow Down">
+      <label for="fileInput" class="flex items-center">
+        <div class="flex items-center bg-orange-300 rounded-md px-4 py-3">
+          <div class="flex items-center space-x-2">
+            <div
+              class="UploadFiles text-center text-neutral-800 text-base font-normal font-arial"
+            >
+              Select files
+            </div>
+            <div class="h-6 w-px bg-neutral-800 ml-4 md:ml-20"></div>
+            <img
+              src="./../assets/icon/Arrow_down.svg"
+              class="h-4 w-4"
+              alt="Dropdown Arrow"
+            />
+          </div>
         </div>
-        
-        <label for="fileInput" class="flex items-center" @click="selectFileClick">
-            <div class="flex items-center bg-orange-300 rounded-md px-4 py-3">
-            <div class="flex items-center space-x-2">
-                <div class="UploadFiles text-center text-neutral-800 text-base font-normal font-arial">
-                  Select files
-                </div>
-                <div class="h-6 w-px bg-neutral-800 ml-4 md:ml-20"></div>
-                <img src="./../assets/icon/Arrow_down.svg" class="h-4 w-4" alt="Dropdown Arrow" />
-            </div>
-            </div>
-        </label>
-        <input id="fileInput" type="file" ref="fileInput" class="hidden" @change="handleFileChange" multiple>
+      </label>
+      <div
+        class="DropZone text-center text-zinc-600 text-sm font-normal font-arial mt-4"
+      >
+        or drag and drop file into this area
+      </div>
 
-        <div class="DropZone text-center text-zinc-600 text-sm font-normal font-arial mt-4">
-            or drag and drop file into this area
-        </div>
-            
-        <div class="flex items-center mb-4">
-            <img class="GoogleDrive w-16 h-4 mr-2" src="./../assets/icon/Google_drive_logo.png" alt="Google Drive Logo">
-            <img class="DropBox w-13 h-3" src="./../assets/icon/Dropbox_logo.png" alt="Dropbox Logo">
-        </div>
+      <div class="flex items-center mb-4">
+        <img
+          class="GoogleDrive w-16 h-4 mr-2"
+          src="./../assets/icon/Google_drive_logo.png"
+          alt="Google Drive Logo"
+        />
+        <img
+          class="DropBox w-13 h-3"
+          src="./../assets/icon/Dropbox_logo.png"
+          alt="Dropbox Logo"
+        />
+      </div>
     </div>
   </div>
 </template>
 
-
 <script>
-import { useDropzone } from "vue3-dropzone";
-import { ref } from "vue";
-import UploadButton from "./UploadButton.vue";
+import { useDropzone } from 'vue3-dropzone';
+import UploadButton from './UploadButton.vue';
 
 export default {
-name: "DropZone",
-components: {
-  UploadButton,
-},
-methods: {
-  selectFileClick() {
-      console.log('selectFileClick called');
-      this.$refs.fileInput.click();
-    },
-    handleFileChange(event) {
-      console.log('handleFileChange called');
-      const files = event.target.files;
-      if (files.length > 0) {
-        for (let i = 0; i < files.length; i++) {
-          console.log('File selected:', files[i]);
-          this.$emit("file-selected", files[i]);
-        }
-      }
-    },
-},
-setup(_, { emit }) {
-  const { getRootProps, getInputProps, ...rest } = useDropzone({
-    onDrop: (acceptedFiles) => {
-      acceptedFiles.forEach(file => emit('file-dropped', file));
-    }
-  });
-  
-  return {
-    getRootProps,
-    getInputProps,
-    ...rest,
-    toggleActive() {
-      this.active = !this.active;
-    },
-    handleDrop(event) {
-      this.toggleActive();
-      const files = Array.from(event.dataTransfer.files);
-      files.forEach(file => {
-        this.$emit('file-dropped', file);
-      });
-    },
-  };
-}
+  name: 'DropZone',
+  components: {
+    UploadButton,
+  },
+  methods: {},
+  setup(_, { emit }) {
+    const { getRootProps, getInputProps, ...rest } = useDropzone({
+      onDrop: (acceptedFiles) => {
+        acceptedFiles.forEach((file) => emit('file-dropped', file));
+      },
+    });
+
+    return {
+      getRootProps,
+      getInputProps,
+      ...rest,
+      toggleActive() {
+        this.active = !this.active;
+      },
+      handleDrop(event) {
+        this.toggleActive();
+        const files = Array.from(event.dataTransfer.files);
+        files.forEach((file) => {
+          this.$emit('file-dropped', file);
+        });
+      },
+    };
+  },
 };
 </script>
