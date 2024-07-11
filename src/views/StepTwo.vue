@@ -69,9 +69,9 @@
   </div>
 </template>
 <script>
-import { formatBytes, truncateFilename } from '../utils/utils.js';
-import Recommended from '../components/Recommended.vue';
-import DefaultButton from '../components/DefaultButton.vue';
+import { formatBytes, truncateFilename } from '../utils/utils.js'
+import Recommended from '../components/Recommended.vue'
+import DefaultButton from '../components/DefaultButton.vue'
 
 export default {
   name: 'StepTwo',
@@ -87,28 +87,28 @@ export default {
   emits: ['option-selected', 'compress-files', 'file-selected'],
   methods: {
     removeFile(index) {
-      this.uploadedFiles.splice(index, 1);
+      this.uploadedFiles.splice(index, 1)
       if (this.uploadedFiles.length === 0) {
-        window.location.reload();
+        window.location.reload()
       }
     },
     handleFileChange(event) {
-      const files = event.target.files;
+      const files = event.target.files
       if (files.length > 0) {
         for (let i = 0; i < files.length; i++) {
-          this.$emit('file-selected', files[i]);
+          this.$emit('file-selected', files[i])
         }
       }
     },
     addMoreFiles() {
-      this.$refs.fileInput.click();
+      this.$refs.fileInput.click()
     },
     formatBytes(bytes) {
-      return formatBytes(bytes);
+      return formatBytes(bytes)
     },
     truncateFilename(filename) {
-      return truncateFilename(filename);
+      return truncateFilename(filename)
     },
   },
-};
+}
 </script>

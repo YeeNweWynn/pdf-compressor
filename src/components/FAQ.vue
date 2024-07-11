@@ -101,31 +101,31 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 export default {
   name: 'FAQ',
   setup() {
-    const dropdownOpen = ref(false);
-    const showAnswer1 = ref(false);
-    const showAnswer2 = ref(false);
-    const showAnswer3 = ref(false);
+    const dropdownOpen = ref(false)
+    const showAnswer1 = ref(false)
+    const showAnswer2 = ref(false)
+    const showAnswer3 = ref(false)
 
     const toggleDropdown = () => {
-      dropdownOpen.value = !dropdownOpen.value;
-    };
+      dropdownOpen.value = !dropdownOpen.value
+    }
 
     const toggleAnswer1 = () => {
-      showAnswer1.value = !showAnswer1.value;
-    };
+      showAnswer1.value = !showAnswer1.value
+    }
 
     const toggleAnswer2 = () => {
-      showAnswer2.value = !showAnswer2.value;
-    };
+      showAnswer2.value = !showAnswer2.value
+    }
 
     const toggleAnswer3 = () => {
-      showAnswer3.value = !showAnswer3.value;
-    };
+      showAnswer3.value = !showAnswer3.value
+    }
 
     return {
       dropdownOpen,
@@ -136,9 +136,9 @@ export default {
       toggleAnswer1,
       toggleAnswer2,
       toggleAnswer3,
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

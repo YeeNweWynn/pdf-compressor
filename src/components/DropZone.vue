@@ -57,28 +57,28 @@
 </template>
 
 <script>
-import { useDropzone } from 'vue3-dropzone';
-import { ref } from 'vue';
+import { useDropzone } from 'vue3-dropzone'
+import { ref } from 'vue'
 
 export default {
   name: 'DropZone',
   setup(_, { emit }) {
-    const active = ref(false);
+    const active = ref(false)
 
     function toggleActive() {
-      active.value = !active.value;
+      active.value = !active.value
     }
 
     function onDrop(acceptedFiles) {
-      acceptedFiles.forEach((file) => emit('file-dropped', file));
+      acceptedFiles.forEach((file) => emit('file-dropped', file))
     }
-    const { getRootProps, getInputProps, ...rest } = useDropzone({ onDrop });
+    const { getRootProps, getInputProps, ...rest } = useDropzone({ onDrop })
     return {
       active,
       getRootProps,
       getInputProps,
       ...rest,
-    };
+    }
   },
-};
+}
 </script>

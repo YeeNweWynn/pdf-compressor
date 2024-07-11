@@ -28,19 +28,19 @@
   </div>
 </template>
 <script>
-import { ref } from 'vue';
-import InformationBox from './InformationBox.vue';
-import { informationList as infoList } from '../utils/informationList.js';
+import { ref } from 'vue'
+import InformationBox from './InformationBox.vue'
+import { informationList as infoList } from '../utils/informationList.js'
 export default {
   name: 'Information',
   components: {
     InformationBox,
   },
   setup() {
-    const informationList = ref(infoList);
+    const informationList = ref(infoList)
     return {
       informationList,
-    };
+    }
   },
-};
+}
 </script>

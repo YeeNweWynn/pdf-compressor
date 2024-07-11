@@ -45,14 +45,14 @@ export default {
         'left-[172px] top-[275px] absolute': this.step === 1,
         'left-[656px] top-[275px] absolute': this.step === 2,
         'left-[1140px] top-[275px] absolute': this.step === 3,
-      };
+      }
     },
     textColorClass() {
       return {
         'text-blue-500': this.step === this.currentStep,
         'text-stone-300': this.step !== this.currentStep,
-      };
+      }
     },
   },
-};
+}
 </script>

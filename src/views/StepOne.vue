@@ -2,7 +2,7 @@
   <DropZone @file-dropped="handleFileSelected" />
 </template>
 <script>
-import DropZone from '../components/DropZone.vue';
+import DropZone from '../components/DropZone.vue'
 
 export default {
   name: 'StepOne',
@@ -15,5 +15,5 @@ export default {
       required: true,
     },
   },
-};
+}
 </script>

@@ -114,5 +114,5 @@
 <script>
 export default {
   name: 'PdfActions',
-};
+}
 </script>

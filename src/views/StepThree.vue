@@ -89,8 +89,8 @@
 </template>
 
 <script>
-import DefaultButton from '../components/DefaultButton.vue';
-import PdfActions from '../components/PdfActions.vue';
+import DefaultButton from '../components/DefaultButton.vue'
+import PdfActions from '../components/PdfActions.vue'
 export default {
   props: {
     step: Number,
@@ -100,5 +100,5 @@ export default {
     DefaultButton,
     PdfActions,
   },
-};
+}
 </script>

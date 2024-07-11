@@ -1,9 +1,9 @@
-import CompressIcon from '../assets/Icon/Compress_Tool.svg';
-import AdjustIcon from '../assets/Icon/Adjust.svg';
-import StarIcon from '../assets/Icon/Star.svg';
-import ComputerIcon from '../assets/Icon/Computer.svg';
-import CloudIcon from '../assets/Icon/Cloud.svg';
-import LockIcon from '../assets/Icon/Lock.svg';
+import CompressIcon from '../assets/Icon/Compress_Tool.svg'
+import AdjustIcon from '../assets/Icon/Adjust.svg'
+import StarIcon from '../assets/Icon/Star.svg'
+import ComputerIcon from '../assets/Icon/Computer.svg'
+import CloudIcon from '../assets/Icon/Cloud.svg'
+import LockIcon from '../assets/Icon/Lock.svg'
 
 export const informationList = [
   {
@@ -42,4 +42,4 @@ export const informationList = [
       'The compression tool does not keep your files longer than necessary on our server. Your files and results will be deleted from our server after a short period of time.',
     icon: LockIcon,
   },
-];
+]

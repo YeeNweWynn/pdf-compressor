@@ -53,13 +53,13 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 
 export default {
   name: 'Recommended',
   emits: ['option-selected'],
   setup(props, { emit }) {
-    const selected = ref('High');
+    const selected = ref('High')
     const options = ref([
       {
         label: 'High',
@@ -85,22 +85,22 @@ export default {
         dpi: 200,
         imageQuality: 90,
       },
-    ]);
+    ])
 
     const selectOption = (option, dpi, imageQuality) => {
-      selected.value = option;
-      emit('option-selected', { option, dpi, imageQuality });
-    };
+      selected.value = option
+      emit('option-selected', { option, dpi, imageQuality })
+    }
 
     onMounted(() => {
-      selected.value = 'High';
-    });
+      selected.value = 'High'
+    })
 
     return {
       selected,
       options,
       selectOption,
-    };
+    }
   },
-};
+}
 </script>

@@ -19,21 +19,21 @@
   />
 </template>
 <script>
-import { ref } from 'vue';
-import axios from 'axios';
-import CompressionTitle from '../components/CompressionTitle.vue';
-import StepOne from './StepOne.vue';
-import StepTwo from './StepTwo.vue';
-import StepThree from './StepThree.vue';
-import Information from '../components/Information.vue';
-import FAQ from '../components/FAQ.vue';
-import StepButton from '../components/StepButton.vue';
-import PdfActions from '../components/PdfActions.vue';
-import Advertisement from '../components/Advertisement.vue';
-import Recommended from '../components/Recommended.vue';
-import DefaultButton from '../components/DefaultButton.vue';
-import DropZone from '../components/DropZone.vue';
-import LoadingIndicator from '../components/LoadingIndicator.vue';
+import { ref } from 'vue'
+import axios from 'axios'
+import CompressionTitle from '../components/CompressionTitle.vue'
+import StepOne from './StepOne.vue'
+import StepTwo from './StepTwo.vue'
+import StepThree from './StepThree.vue'
+import Information from '../components/Information.vue'
+import FAQ from '../components/FAQ.vue'
+import StepButton from '../components/StepButton.vue'
+import PdfActions from '../components/PdfActions.vue'
+import Advertisement from '../components/Advertisement.vue'
+import Recommended from '../components/Recommended.vue'
+import DefaultButton from '../components/DefaultButton.vue'
+import DropZone from '../components/DropZone.vue'
+import LoadingIndicator from '../components/LoadingIndicator.vue'
 
 export default {
   name: 'Compression',
@@ -53,55 +53,55 @@ export default {
     LoadingIndicator,
   },
   setup() {
-    const step = ref(1);
-    const loading = ref(false);
-    const isCompressing = ref(false);
-    const compressionJobId = ref(null);
-    const selectedOption = ref(null);
-    const dpi = ref(144);
-    const imageQuality = ref(75);
-    const uploadedFiles = ref([]);
+    const step = ref(1)
+    const loading = ref(false)
+    const isCompressing = ref(false)
+    const compressionJobId = ref(null)
+    const selectedOption = ref(null)
+    const dpi = ref(144)
+    const imageQuality = ref(75)
+    const uploadedFiles = ref([])
 
     const handleFileSelected = (file) => {
-      step.value = 2;
-      loading.value = true;
+      step.value = 2
+      loading.value = true
       uploadFile(file)
         .then((response) => {
-          uploadedFiles.value.push(...response);
+          uploadedFiles.value.push(...response)
         })
         .catch((error) => {
-          console.error('Error uploading file:', error);
+          console.error('Error uploading file:', error)
         })
         .finally(() => {
-          loading.value = false;
-        });
-    };
+          loading.value = false
+        })
+    }
 
     const handleOptionSelected = (option) => {
-      selectedOption.value = option.option;
-      dpi.value = option.dpi;
-      imageQuality.value = option.imageQuality;
-    };
+      selectedOption.value = option.option
+      dpi.value = option.dpi
+      imageQuality.value = option.imageQuality
+    }
 
     const uploadFile = (file) => {
-      const apiUrl = 'https://filetools13.pdf24.org/client.php?action=upload';
-      const formData = new FormData();
-      formData.append('file', file);
+      const apiUrl = 'https://filetools13.pdf24.org/client.php?action=upload'
+      const formData = new FormData()
+      formData.append('file', file)
       return fetch(apiUrl, {
         method: 'POST',
         body: formData,
       })
         .then((response) => response.json())
         .then((data) => {
-          return Array.isArray(data) ? data : [data];
-        });
-    };
+          return Array.isArray(data) ? data : [data]
+        })
+    }
 
     const compressFiles = async () => {
       try {
-        isCompressing.value = loading.value = true;
+        isCompressing.value = loading.value = true
         const apiUrl =
-          'https://filetools13.pdf24.org/client.php?action=compressPdf';
+          'https://filetools13.pdf24.org/client.php?action=compressPdf'
         const payload = {
           files: uploadedFiles.value.map((file) => ({
             file: file.file,
@@ -114,63 +114,63 @@ export default {
           imageQuality: imageQuality.value,
           mode: 'normal',
           colorModel: '',
-        };
+        }
         const response = await axios.post(apiUrl, payload, {
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
           },
           withCredentials: true,
-        });
-        compressionJobId.value = response.data.jobId;
-        await pollJobStatus();
+        })
+        compressionJobId.value = response.data.jobId
+        await pollJobStatus()
       } catch (error) {
-        console.error('Error compressing files:', error);
+        console.error('Error compressing files:', error)
       } finally {
-        isCompressing.value = loading.value = false;
+        isCompressing.value = loading.value = false
       }
-    };
+    }
 
     const pollJobStatus = async () => {
       try {
-        if (!compressionJobId.value) return;
-        let status = '';
+        if (!compressionJobId.value) return
+        let status = ''
         while (status !== 'done') {
-          const apiUrl = `https://filetools13.pdf24.org/client.php?action=getStatus&jobId=${compressionJobId.value}`;
+          const apiUrl = `https://filetools13.pdf24.org/client.php?action=getStatus&jobId=${compressionJobId.value}`
           const response = await axios.get(apiUrl, {
             headers: {
               'Content-Type': 'application/json; charset=UTF-8',
             },
             withCredentials: true,
-          });
-          status = response.data.status;
-          await new Promise((resolve) => setTimeout(resolve, 5000));
+          })
+          status = response.data.status
+          await new Promise((resolve) => setTimeout(resolve, 5000))
         }
-        step.value = 3;
+        step.value = 3
       } catch (error) {
-        console.error('Error checking job status:', error);
+        console.error('Error checking job status:', error)
       }
-    };
+    }
 
     const downloadCompressedFile = async () => {
       try {
-        if (!compressionJobId.value) return;
-        const downloadUrl = `https://filetools13.pdf24.org/client.php?mode=download&action=downloadJobResult&jobId=${compressionJobId.value}`;
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if (!compressionJobId.value) return
+        const downloadUrl = `https://filetools13.pdf24.org/client.php?mode=download&action=downloadJobResult&jobId=${compressionJobId.value}`
+        const link = document.createElement('a')
+        link.href = downloadUrl
+        link.setAttribute('target', '_blank')
+        link.setAttribute('rel', 'noopener noreferrer')
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
       } catch (error) {
-        console.error('Error downloading file:', error);
+        console.error('Error downloading file:', error)
       }
-    };
+    }
 
     const restart = () => {
-      step.value = 1;
-      window.location.reload();
-    };
+      step.value = 1
+      window.location.reload()
+    }
 
     return {
       step,
@@ -188,7 +188,7 @@ export default {
       pollJobStatus,
       downloadCompressedFile,
       restart,
-    };
+    }
   },
-};
+}
 </script>

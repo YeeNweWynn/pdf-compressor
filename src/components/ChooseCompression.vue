@@ -85,5 +85,5 @@
 <script>
 export default {
   name: 'ChooseCompression',
-};
+}
 </script>

@@ -9,11 +9,11 @@
   </div>
 </template>
 <script>
-import Advertisement from '../components/Advertisement.vue';
-import FQA from '../components/FAQ.vue';
-import CompressionTitle from '../components/CompressionTitle.vue';
-import Information from '../components/Information.vue';
-import Compression from './Compression.vue';
+import Advertisement from '../components/Advertisement.vue'
+import FQA from '../components/FAQ.vue'
+import CompressionTitle from '../components/CompressionTitle.vue'
+import Information from '../components/Information.vue'
+import Compression from './Compression.vue'
 export default {
   name: 'CompressionPanel',
   components: {
@@ -23,5 +23,5 @@ export default {
     Information,
     FQA,
   },
-};
+}
 </script>

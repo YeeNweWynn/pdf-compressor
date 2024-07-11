@@ -59,11 +59,11 @@ export default {
   },
   computed: {
     buttonClasses() {
-      return `${this.width} ${this.height} ${this.paddingX} ${this.paddingY} ${this.bgColor} ${this.borderRadius} flex justify-center items-center`;
+      return `${this.width} ${this.height} ${this.paddingX} ${this.paddingY} ${this.bgColor} ${this.borderRadius} flex justify-center items-center`
     },
     textClasses() {
-      return `${this.textColor} ${this.fontSize} ${this.fontWeight} ${this.fontFamily}`;
+      return `${this.textColor} ${this.fontSize} ${this.fontWeight} ${this.fontFamily}`
     },
   },
-};
+}
 </script>
