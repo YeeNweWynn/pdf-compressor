@@ -1,10 +1,10 @@
 <template>
-  <div class="relative p-6 ml-40 mr-40">
+  <div class="relative p-6 ml-0 mr-0 md:ml-40 md:mr-40">
     <Compression />
     <Advertisement />
   </div>
   <Information />
-  <div class="relative p-6 ml-40 mr-40">
+  <div class="relative p-6 ml-0 mr-0 md:ml-40 md:mr-40">
     <FQA />
   </div>
 </template>
